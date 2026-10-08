@@ -12,7 +12,7 @@ import { fmtDate, money } from "@/lib/format";
 import type { CampaignDTO, CampaignSummary } from "@/types";
 
 const VIDEO_ID = "j-eg-cFrXGg";
-
+const REPORT_URL = "https://drive.google.com/drive/folders/1YQ5Ls55B6Qak_w6hmhSigjUQxcfPvH3x";
 const NAV_LINKS = [
   { href: "#progress", label: "অগ্রগতি" },
   { href: "#request", label: "অনুদান দিন" },
@@ -331,12 +331,27 @@ function Hero({ s }: { s: CampaignSummary }) {
               </div>
             </div>
 
-            <a
-              href="#request"
-              className="mt-5 inline-flex h-11 w-full items-center justify-center rounded-md bg-white px-5 text-sm font-semibold text-brand-dark hover:bg-brand-soft sm:h-10 sm:w-auto"
-            >
-              অনুদানের অনুরোধ করুন
-            </a>
+            <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
+  <a
+    href="#request"
+    className="inline-flex h-11 w-full items-center justify-center rounded-md bg-white px-5 text-sm font-semibold text-brand-dark hover:bg-brand-soft sm:h-10 sm:w-auto"
+  >
+    অনুদানের অনুরোধ করুন
+  </a>
+
+  <a
+    href={REPORT_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-white/40 px-5 text-sm font-semibold text-white hover:bg-white/10 sm:h-10 sm:w-auto"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+      <path d="M14 3v5h5M9 13h6M9 17h6" />
+    </svg>
+    রোগীর রিপোর্ট দেখুন
+  </a>
+</div>
           </div>
         </div>
       </div>
