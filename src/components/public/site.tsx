@@ -13,6 +13,7 @@ import type { CampaignDTO, CampaignSummary } from "@/types";
 
 const VIDEO_ID = "j-eg-cFrXGg";
 const REPORT_URL = "https://drive.google.com/drive/folders/1YQ5Ls55B6Qak_w6hmhSigjUQxcfPvH3x";
+const FACEBOOK_URL = "https://www.facebook.com/share/1C5uBzN6Ra/";
 const NAV_LINKS = [
   { href: "#progress", label: "অগ্রগতি" },
   { href: "#request", label: "অনুদান দিন" },
@@ -283,7 +284,6 @@ function Hero({ s }: { s: CampaignSummary }) {
               />
               <div className="px-2 pb-1 pt-3 text-center">
                 <p className="font-semibold">অংকন দেবনাথ</p>
-                <p className="mt-1 text-xs text-white/60">চিকিৎসার জন্য আপনাদের সহযোগিতা প্রয়োজন</p>
               </div>
             </div>
           </div>
@@ -291,7 +291,7 @@ function Hero({ s }: { s: CampaignSummary }) {
           {/* Text */}
           <div className="min-w-0">
             <div className="mb-3 inline-flex max-w-full rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/90">
-              চিকিৎসার জন্য মানবিক সাহায্যের আবেদন
+            অংকন বাঁচতে চাই 🙏
             </div>
 
             <h1 className="text-xl font-bold leading-snug sm:text-2xl lg:text-3xl">
@@ -332,26 +332,27 @@ function Hero({ s }: { s: CampaignSummary }) {
             </div>
 
             <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
-  <a
-    href="#request"
-    className="inline-flex h-11 w-full items-center justify-center rounded-md bg-white px-5 text-sm font-semibold text-brand-dark hover:bg-brand-soft sm:h-10 sm:w-auto"
-  >
-    অনুদানের অনুরোধ করুন
-  </a>
+              <a
+                href="#request"
+                className="inline-flex h-11 w-full items-center justify-center rounded-md bg-white px-5 text-sm font-semibold text-brand-dark hover:bg-brand-soft sm:h-10 sm:w-auto"
+              >
+                অনুদানের অনুরোধ করুন
+              </a>
 
-  <a
-    href={REPORT_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-white/40 px-5 text-sm font-semibold text-white hover:bg-white/10 sm:h-10 sm:w-auto"
-  >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-      <path d="M14 3v5h5M9 13h6M9 17h6" />
-    </svg>
-    রোগীর রিপোর্ট দেখুন
-  </a>
-</div>
+              <a
+                href={REPORT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-white/40 px-5 text-sm font-semibold text-white hover:bg-white/10 sm:h-10 sm:w-auto"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 3v5h5M9 13h6M9 17h6" />
+                </svg>
+                মেডিকেল রিপোর্ট দেখুন
+
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -363,23 +364,19 @@ function Hero({ s }: { s: CampaignSummary }) {
 
 function VideoSection() {
   return (
-    <Card>
+    <Card className="overflow-hidden">
       <CardHeader title="ভিডিও" hint="অংকনের চিকিৎসা সম্পর্কে" />
-      <CardBody>
-        <div className="mx-auto w-full max-w-3xl overflow-hidden rounded-lg border border-line bg-black">
-          <div className="relative aspect-video w-full">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0`}
-              title="অংকন দেবনাথের চিকিৎসা সম্পর্কিত ভিডিও"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          </div>
-        </div>
-      </CardBody>
+      <div className="relative aspect-video w-full bg-black">
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0&autoplay=1&mute=1&playsinline=1`}
+          title="অংকন দেবনাথের চিকিৎসা সম্পর্কিত ভিডিও"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      </div>
     </Card>
   );
 }
@@ -399,7 +396,7 @@ function CampaignInfo({ c }: { c: CampaignDTO }) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
       <Card className="min-w-0">
-        <CardHeader title="Campaign সম্পর্কে" />
+        <CardHeader title="সাহায্য করুন" />
         <CardBody className="space-y-3">
           <p className="whitespace-pre-line leading-relaxed [overflow-wrap:anywhere]">
             {c.description || "বিস্তারিত শীঘ্রই যোগ করা হবে।"}
@@ -440,9 +437,22 @@ function CampaignInfo({ c }: { c: CampaignDTO }) {
               </dl>
             </div>
 
-            <p className="break-words">
-              📌 অংকনের ফেসবুক একাউন্ট: <strong>Onkon Dabnath</strong>
-            </p>
+            <div className="space-y-2">
+              <p className="break-words">
+                📌 অংকনের ফেসবুক একাউন্ট: <strong>Onkon Dabnath</strong>
+              </p>
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#1877F2] px-4 text-sm font-semibold text-white hover:opacity-90 sm:w-auto"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" />
+                </svg>
+                ফেসবুক প্রোফাইল দেখুন
+              </a>
+            </div>
           </div>
         </CardBody>
       </Card>
