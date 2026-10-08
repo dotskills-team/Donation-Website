@@ -11,7 +11,7 @@ import { useLive } from "@/hooks/use-live";
 import { fmtDate, money } from "@/lib/format";
 import type { CampaignDTO, CampaignSummary } from "@/types";
 
-const VIDEO_ID = "_iJ_wrhFsvc";
+const VIDEO_ID = "j-eg-cFrXGg";
 
 const NAV_LINKS = [
   { href: "#progress", label: "অগ্রগতি" },
